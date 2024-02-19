@@ -29,6 +29,24 @@ p, small {
 	font-size: 1rem;
 }
 
+button {
+	color: var(--dark-gray);
+	font-family: var(--primary-font);
+}
+
+a {
+	text-decoration: none;
+}
+
+button, a {
+	font-size: 1rem;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
 .text-body__primary {
 	line-height: 1.778rem;
 	font-size: 1rem;
@@ -49,9 +67,19 @@ p, small {
 	line-height: 60px;
 }
 
+.button {
+	width: 175px;
+	height: 50px;
+	color: var(--dark-gray);
+	font-family: var(--primary-font);
+	border: none;
+	border-radius: 15px;
+	background-color: var(--purple);
+}
+
 #app {
 	width: 100%;
   max-width: 1280px;
-	padding: 20px;
+	padding: 0px 20px;
 }
 
