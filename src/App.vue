@@ -1,10 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+	import BaseHeader from './ui/components/base-header.vue'
+</script>
 <template>
-	<p class="text-head__secondary">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam itaque officia
-		iste voluptatum quaerat sint impedit magnam ad laborum quidem consectetur
-		maxime quo, voluptas perspiciatis modi debitis facilis nostrum ea?
-	</p>
+	<BaseHeader />
 </template>
 
 <style scoped></style>

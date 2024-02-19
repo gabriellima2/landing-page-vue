@@ -26,7 +26,10 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+		"src/ui/**/*.vue",
+		"src/ui/atoms/*.vue",
+		"src/ui/components/*.vue"
   ],
   "references": [
     {
