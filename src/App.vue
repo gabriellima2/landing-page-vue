@@ -13,7 +13,7 @@
 		</template>
 	</BaseHeader>
 	<main class="container">
-		<section class="hero">
+		<section class="section hero">
 			<div class="hero__information">
 				<div class="hero__information__texts">
 					<h1 class="text-head__primary hero__information__texts__title">
@@ -31,6 +31,11 @@
 			</div>
 		</section>
 		<Companies />
+		<section class="section details">
+			<div class="hero__image dashboard-image">
+				<img src="/src/assets/images/dashboard.png" alt="Dashboard Preview" />
+			</div>
+		</section>
 	</main>
 </template>
 
@@ -50,13 +55,9 @@
 		align-items: center;
 	}
 	.hero {
-		width: 100%;
-		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 76px;
-		padding: 76px 0px;
 	}
 	.hero__information__texts {
 		display: flex;
@@ -81,10 +82,27 @@
 			width: 100%;
 		}
 	}
+	.details {
+		flex-direction: column;
+	}
+	.section {
+		display: flex;
+		width: 100%;
+		gap: 76px;
+		padding: 76px 0px;
+	}
 	.preview-image {
 		background-color: var(--dark-gray);
 		& > img {
 			max-width: 500px;
+		}
+	}
+	.dashboard-image {
+		overflow: hidden;
+		background-color: #fdf5df;
+		& > img {
+			position: relative;
+			bottom: -7px;
 		}
 	}
 	.get-started-link {
