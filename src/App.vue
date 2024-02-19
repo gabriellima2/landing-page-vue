@@ -3,6 +3,7 @@
 	import Companies from './ui/components/companies.vue'
 	import FeatureCard from './ui/components/feature-card.vue'
 	import BaseLink from './ui/atoms/base-link.vue'
+	import CustomerFeedback from './ui/components/customer-feedback.vue'
 </script>
 <template>
 	<BaseHeader>
@@ -62,6 +63,17 @@
 					/>
 				</li>
 			</ul>
+			<CustomerFeedback
+				:customer="{
+					name: 'Johnny Owens',
+					avatarUrl: '/src/assets/images/default-avatar.png',
+				}"
+				:feedback="{
+					rating: 5,
+					message:
+						'Wallet is a great product! All of my most important information is there - credit cards, transit cards, boarding passes, tickets, and more. And I don`t need to worry because it`s all in one place! thanks!',
+				}"
+			/>
 		</section>
 	</main>
 </template>
