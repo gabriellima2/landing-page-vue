@@ -24,7 +24,7 @@ body {
 
 p, small {
 	opacity: 0.4;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 1.778rem;
 	font-size: 1rem;
 }
@@ -45,6 +45,11 @@ button, a {
 	&:hover {
 		opacity: 0.8;
 	}
+}
+
+h1, h2, h3, h4, h5, h6, p, small {
+	margin-block-start: 0px;
+	margin-block-end: 0px;
 }
 
 .text-body__primary {
@@ -81,5 +86,8 @@ button, a {
 	width: 100%;
   max-width: 1280px;
 	padding: 0px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
