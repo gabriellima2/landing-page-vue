@@ -127,6 +127,7 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 48px;
+		padding: 0px;
 	}
 	.section {
 		display: flex;
