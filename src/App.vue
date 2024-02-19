@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import BaseHeader from './ui/components/base-header.vue'
 	import Companies from './ui/components/companies.vue'
+	import FeatureCard from './ui/components/feature-card.vue'
 	import BaseLink from './ui/atoms/base-link.vue'
 </script>
 <template>
@@ -35,6 +36,32 @@
 			<div class="hero__image dashboard-image">
 				<img src="/src/assets/images/dashboard.png" alt="Dashboard Preview" />
 			</div>
+			<ul class="feature-list">
+				<li>
+					<FeatureCard
+						title="Customizable card"
+						description="Custom your own card for your exact incomes and expenses needs."
+						:image="{ src: '/src/assets/icons/cards.svg', alt: 'Cards Icon' }"
+					/>
+				</li>
+				<li>
+					<FeatureCard
+						title="No payment fee"
+						description="Transfer your payment all over the world with no payment fee."
+						:image="{
+							src: '/src/assets/icons/coin.svg',
+							alt: 'Currency Icon',
+						}"
+					/>
+				</li>
+				<li>
+					<FeatureCard
+						title="All in one place"
+						description="The right place to keep your credit and debit cards, boarding passes & more.  "
+						:image="{ src: '/src/assets/icons/purse.svg', alt: 'Purse Icon' }"
+					/>
+				</li>
+			</ul>
 		</section>
 	</main>
 </template>
@@ -57,7 +84,6 @@
 	.hero {
 		flex-direction: row;
 		justify-content: space-between;
-		flex-wrap: wrap;
 	}
 	.hero__information__texts {
 		display: flex;
@@ -85,6 +111,11 @@
 	.details {
 		flex-direction: column;
 	}
+	.feature-list {
+		display: flex;
+		justify-content: space-between;
+		gap: 48px;
+	}
 	.section {
 		display: flex;
 		width: 100%;
@@ -109,7 +140,7 @@
 		background-color: var(--yellow);
 	}
 
-	@media screen and (max-width: 540px) {
+	@media screen and (max-width: 768px) {
 		h1,
 		h2,
 		h3,
@@ -120,14 +151,27 @@
 		small {
 			text-align: center;
 		}
-		.hero__information {
-			align-items: center;
-		}
 		.header__authentication-links {
 			display: none;
 		}
+		.hero {
+			flex-direction: column;
+			align-items: center;
+		}
+		.hero__information {
+			align-items: center;
+		}
 		.hero__information__texts__title {
 			min-width: auto;
+		}
+		.preview-image {
+			& > img {
+				max-width: 100%;
+			}
+		}
+		.feature-list {
+			align-items: center;
+			flex-direction: column;
 		}
 	}
 </style>
