@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import BaseHeader from './ui/components/base-header.vue'
+	import Companies from './ui/components/companies.vue'
 	import BaseLink from './ui/atoms/base-link.vue'
 </script>
 <template>
@@ -29,6 +30,7 @@
 				<img src="/src/assets/images/hero.png" alt="Charts Preview" />
 			</div>
 		</section>
+		<Companies />
 	</main>
 </template>
 
