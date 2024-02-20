@@ -1,11 +1,20 @@
 <template>
-	<a v-bind="$attrs" :class="`button ${text ? 'link--text' : 'link--button'}`">
+	<a
+		v-bind="$attrs"
+		:class="`button ${props.class} ${props.text ? 'link--text' : 'link--button'}`"
+	>
 		<slot></slot>
 	</a>
 </template>
 
 <script setup lang="ts">
-	defineProps<{ text?: boolean }>()
+	import type { AnchorHTMLAttributes } from 'vue'
+
+	interface BaseLinkProps extends /* @vue-ignore */ AnchorHTMLAttributes {
+		text?: boolean
+	}
+
+	const props = defineProps<BaseLinkProps>()
 </script>
 
 <style scoped>
