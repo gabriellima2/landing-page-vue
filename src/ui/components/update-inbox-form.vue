@@ -2,7 +2,7 @@
 	<form class="update-inbox-form" @submit.prevent="handleSubmit">
 		<p class="update-inbox-form__title">Updates right to your Inbox</p>
 		<div class="update-inbox-form__content">
-			<div>
+			<div class="field">
 				<BaseInput
 					type="email"
 					id="email"
@@ -12,7 +12,7 @@
 					:aria-invalid="!!validationMessage"
 					aria-describedby="email-error"
 				/>
-				<small role="alert" id="email-error">{{ validationMessage }}</small>
+				<TextError id="email-error" :message="validationMessage" />
 			</div>
 			<BaseButton
 				type="submit"
@@ -20,7 +20,6 @@
 				:disabled="isSubmitting"
 				>{{ buttonText }}</BaseButton
 			>
-			<small v-if="mailerStatus" role="alert">{{ mailerStatus }}</small>
 		</div>
 	</form>
 </template>
@@ -29,6 +28,7 @@
 	import { computed, ref } from 'vue'
 
 	import BaseButton from '../atoms/base-button.vue'
+	import TextError from '../atoms/text-error.vue'
 	import BaseInput from './base-input.vue'
 
 	import { EmailValidation } from '../../validations/email.validation'
@@ -38,7 +38,6 @@
 
 	const email = ref('')
 	const isSubmitting = ref(false)
-	const mailerStatus = ref<null | string>(null)
 	const validationMessage = ref<string | null>(null)
 
 	const buttonText = computed(() =>
@@ -57,7 +56,7 @@
 			})
 		} catch (err) {
 			const message = (err as Error).message || 'Unexpected Error'
-			mailerStatus.value = message
+			console.error(message)
 		} finally {
 			isSubmitting.value = false
 		}
@@ -82,6 +81,12 @@
 	.update-inbox-form__email-input {
 		max-width: 300px;
 		min-width: 175px;
+	}
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		border: none;
 	}
 
 	@media screen and (max-width: 560px) {
