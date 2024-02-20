@@ -85,7 +85,7 @@
 	</main>
 	<TheFooter>
 		<template #right>
-			<UpdateInboxForm />
+			<UpdateInboxForm :mailer="new MailerServiceImpl()" />
 		</template>
 	</TheFooter>
 </template>
@@ -98,6 +98,7 @@
 	import TheFooter from './ui/components/the-footer.vue'
 	import Companies from './ui/components/companies.vue'
 	import BaseLink from './ui/atoms/base-link.vue'
+	import { MailerServiceImpl } from './services/impl/mailer-service'
 </script>
 
 <style scoped>

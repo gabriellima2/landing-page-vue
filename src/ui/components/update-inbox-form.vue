@@ -1,23 +1,67 @@
 <template>
-	<form class="update-inbox-form">
+	<form class="update-inbox-form" @submit.prevent="handleSubmit">
 		<p class="update-inbox-form__title">Updates right to your Inbox</p>
 		<div class="update-inbox-form__content">
-			<BaseInput
-				type="email"
-				placeholder="Email Address"
-				:model-value="''"
-				class="update-inbox-form__email-input"
-			/>
-			<BaseButton type="submit" class="update-inbox-form__send-button"
-				>Send</BaseButton
+			<div>
+				<BaseInput
+					type="email"
+					id="email"
+					placeholder="Email Address"
+					v-model="email"
+					class="update-inbox-form__email-input"
+					:aria-invalid="!!validationMessage"
+					aria-describedby="email-error"
+				/>
+				<small role="alert" id="email-error">{{ validationMessage }}</small>
+			</div>
+			<BaseButton
+				type="submit"
+				class="update-inbox-form__send-button"
+				:disabled="isSubmitting"
+				>{{ buttonText }}</BaseButton
 			>
+			<small v-if="mailerStatus" role="alert">{{ mailerStatus }}</small>
 		</div>
 	</form>
 </template>
 
 <script setup lang="ts">
+	import { computed, ref } from 'vue'
+
 	import BaseButton from '../atoms/base-button.vue'
 	import BaseInput from './base-input.vue'
+
+	import { EmailValidation } from '../../validations/email.validation'
+	import { MailerService } from '../../services/mailer-service'
+
+	const props = defineProps<{ mailer: MailerService }>()
+
+	const email = ref('')
+	const isSubmitting = ref(false)
+	const mailerStatus = ref<null | string>(null)
+	const validationMessage = ref<string | null>(null)
+
+	const buttonText = computed(() =>
+		isSubmitting.value ? 'Submitting...' : 'Send'
+	)
+
+	async function handleSubmit() {
+		isSubmitting.value = true
+		try {
+			validationMessage.value = new EmailValidation().execute(email.value)
+			if (validationMessage.value) return
+			await props.mailer.send({
+				recipient: email.value,
+				subject: 'Welcome!',
+				body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit Eveniet praesentium dolorem quas facilis in eaque',
+			})
+		} catch (err) {
+			const message = (err as Error).message || 'Unexpected Error'
+			mailerStatus.value = message
+		} finally {
+			isSubmitting.value = false
+		}
+	}
 </script>
 
 <style scoped>
