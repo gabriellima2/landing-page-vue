@@ -74,6 +74,20 @@
 						'Wallet is a great product! All of my most important information is there - credit cards, transit cards, boarding passes, tickets, and more. And I don`t need to worry because it`s all in one place! thanks!',
 				}"
 			/>
+			<section class="section hero">
+				<div class="lets-talk">
+					<div class="lets-talk__texts">
+						<h1 class="text-head__primary">Questions? Let’s talk</h1>
+						<p>
+							Contact us through our 24/7 live chat. We’re always happy to help!
+						</p>
+					</div>
+					<BaseLink class="get-started-link">Get Started</BaseLink>
+				</div>
+				<div class="contact-image">
+					<img src="/src/assets/images/lets-talk.png" alt="let`s Talk" />
+				</div>
+			</section>
 		</section>
 	</main>
 </template>
@@ -129,6 +143,18 @@
 		gap: 48px;
 		padding: 0px;
 	}
+	.lets-talk {
+		flex: 1;
+		max-width: 300px;
+		display: flex;
+		flex-direction: column;
+		gap: 44px;
+	}
+	.lets-talk__texts {
+		display: flex;
+		flex-direction: column;
+		gap: 36px;
+	}
 	.section {
 		display: flex;
 		width: 100%;
@@ -147,6 +173,12 @@
 		& > img {
 			position: relative;
 			bottom: -7px;
+		}
+	}
+	.contact-image {
+		& > img {
+			width: 100%;
+			max-width: 500px;
 		}
 	}
 	.get-started-link {
@@ -171,6 +203,9 @@
 			flex-direction: column;
 			align-items: center;
 		}
+		.lets-talk {
+			align-items: center;
+		}
 		.hero__information {
 			align-items: center;
 		}
@@ -182,9 +217,20 @@
 				max-width: 100%;
 			}
 		}
+		.contact-image {
+			& > img {
+				max-width: 100%;
+			}
+		}
 		.feature-list {
 			align-items: center;
 			flex-direction: column;
+		}
+	}
+	@media screen and (max-width: 560px) {
+		.text-head__primary {
+			font-size: 40px;
+			line-height: 60px;
 		}
 	}
 </style>
