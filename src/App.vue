@@ -85,17 +85,15 @@
 	</main>
 	<TheFooter>
 		<template #right>
-			<form>
-				<BaseInput type="email" placeholder="Email Address" :model-value="''" />
-			</form>
+			<UpdateInboxForm />
 		</template>
 	</TheFooter>
 </template>
 
 <script setup lang="ts">
 	import CustomerFeedback from './ui/components/customer-feedback.vue'
+	import UpdateInboxForm from './ui/components/update-inbox-form.vue'
 	import FeatureCard from './ui/components/feature-card.vue'
-	import BaseInput from './ui/components/base-input.vue'
 	import TheHeader from './ui/components/the-header.vue'
 	import TheFooter from './ui/components/the-footer.vue'
 	import Companies from './ui/components/companies.vue'
