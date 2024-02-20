@@ -1,7 +1,7 @@
 <template>
 	<footer class="footer">
+		<TheLogo />
 		<section class="footer__content">
-			<TheFooter />
 			<ul class="footer__content__links">
 				<li>
 					<TextLink aria-disabled="true" class="copyright"
@@ -18,43 +18,55 @@
 					<TextLink href="#">Terms of use</TextLink>
 				</li>
 			</ul>
+			<slot name="right"></slot>
 		</section>
-		<slot name="right"></slot>
 	</footer>
 </template>
 
 <script setup lang="ts">
 	import TextLink from '../atoms/text-link.vue'
-	import TheFooter from './the-logo.vue'
+	import TheLogo from './the-logo.vue'
 </script>
 
 <style scoped>
 	.footer {
 		width: 100%;
 		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
+		flex-direction: column;
 		padding: 56px 0px;
 		border-top: 1px solid #ffffff33;
 	}
 	.footer__content {
 		flex: 1;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-wrap: wrap-reverse;
 		gap: 56px;
 	}
 	.footer__content__links {
 		display: flex;
 		flex-direction: row;
 		gap: 24px;
-		flex-wrap: wrap;
+		min-width: 360px;
 	}
 	.copyright {
 		cursor: default;
 		&:hover {
 			opacity: 1;
+		}
+	}
+
+	@media screen and (max-width: 983px) {
+		.footer {
+			gap: 56px;
+		}
+	}
+
+	@media screen and (max-width: 560px) {
+		.footer__content__links {
+			flex-direction: column;
 		}
 	}
 </style>
