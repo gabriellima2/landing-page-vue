@@ -1,5 +1,5 @@
 <template>
-	<a :class="`button ${text ? 'link--text' : 'link--button'}`">
+	<a v-bind="$attrs" :class="`button ${text ? 'link--text' : 'link--button'}`">
 		<slot></slot>
 	</a>
 </template>

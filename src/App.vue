@@ -1,10 +1,3 @@
-<script setup lang="ts">
-	import BaseHeader from './ui/components/base-header.vue'
-	import Companies from './ui/components/companies.vue'
-	import FeatureCard from './ui/components/feature-card.vue'
-	import BaseLink from './ui/atoms/base-link.vue'
-	import CustomerFeedback from './ui/components/customer-feedback.vue'
-</script>
 <template>
 	<BaseHeader>
 		<template #right>
@@ -90,7 +83,17 @@
 			</section>
 		</section>
 	</main>
+	<BaseFooter />
 </template>
+
+<script setup lang="ts">
+	import CustomerFeedback from './ui/components/customer-feedback.vue'
+	import FeatureCard from './ui/components/feature-card.vue'
+	import BaseHeader from './ui/components/base-header.vue'
+	import BaseFooter from './ui/components/base-footer.vue'
+	import Companies from './ui/components/companies.vue'
+	import BaseLink from './ui/atoms/base-link.vue'
+</script>
 
 <style scoped>
 	.header__authentication-links {
