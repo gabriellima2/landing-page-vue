@@ -1,6 +1,6 @@
 <template>
 	<header class="header">
-		<BaseLogo />
+		<TheLogo />
 		<div>
 			<slot name="right"></slot>
 		</div>
@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-	import BaseLogo from '../atoms/base-logo.vue'
+	import TheLogo from './the-logo.vue'
 </script>
 
 <style scoped>

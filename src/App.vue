@@ -1,12 +1,12 @@
 <template>
-	<BaseHeader>
+	<TheHeader>
 		<template #right>
 			<section class="header__authentication-links">
 				<BaseLink title="Sign Up" text>Sign Up</BaseLink>
 				<BaseLink title="Login">Log In</BaseLink>
 			</section>
 		</template>
-	</BaseHeader>
+	</TheHeader>
 	<main class="container">
 		<section class="section hero">
 			<div class="hero__information">
@@ -83,14 +83,14 @@
 			</section>
 		</section>
 	</main>
-	<BaseFooter />
+	<TheFooter />
 </template>
 
 <script setup lang="ts">
 	import CustomerFeedback from './ui/components/customer-feedback.vue'
 	import FeatureCard from './ui/components/feature-card.vue'
-	import BaseHeader from './ui/components/base-header.vue'
-	import BaseFooter from './ui/components/base-footer.vue'
+	import TheHeader from './ui/components/the-header.vue'
+	import TheFooter from './ui/components/the-footer.vue'
 	import Companies from './ui/components/companies.vue'
 	import BaseLink from './ui/atoms/base-link.vue'
 </script>

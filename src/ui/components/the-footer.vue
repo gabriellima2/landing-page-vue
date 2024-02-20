@@ -1,7 +1,7 @@
 <template>
 	<footer class="footer">
 		<section class="footer__content">
-			<BaseLogo />
+			<TheFooter />
 			<ul class="footer__content__links">
 				<li>
 					<TextLink aria-disabled="true" class="copyright"
@@ -24,8 +24,8 @@
 </template>
 
 <script setup lang="ts">
-	import BaseLogo from '../atoms/base-logo.vue'
 	import TextLink from '../atoms/text-link.vue'
+	import TheFooter from './the-logo.vue'
 </script>
 
 <style scoped>
@@ -33,6 +33,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		padding: 56px 0px;
